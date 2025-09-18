@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brightBlue: hsl(220, 98%, 61%);
+  --color-checkBackground1: hsl(192, 100%, 67%);
+  --color-checkBackground2: hsl(280, 87%, 65%);
+
+  --color-veryLightGray: hsl(0, 0%, 98%);
+  --color-veryLightGrayishBlue: hsl(236, 33%, 92%);
+  --color-lightGrayishBlueLight: hsl(233, 11%, 84%);
+  --color-darkGrayishBlueLight: hsl(236, 9%, 61%);
+  --color-veryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  --color-veryDarkBlue: hsl(235, 21%, 11%);
+  --color-veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --color-lightGrayishBlueDark: hsl(234, 39%, 85%);
+  --color-lightGrayishBlueHover: hsl(236, 33%, 92%);
+  --color-darkGrayishBlueDark: hsl(234, 11%, 52%);
+  --color-veryDarkGrayishBlue1: hsl(233, 14%, 35%);
+  --color-veryDarkGrayishBlue2: hsl(237, 14%, 26%);
+}
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+  transition: 0.3s;
+}
+
+img {
+  user-select: none;
+}
