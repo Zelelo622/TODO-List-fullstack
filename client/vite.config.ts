@@ -1,18 +1,24 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import envCompatible from "vite-plugin-env-compatible";
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss(), tsconfigPaths()],
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://xserver-krv.ru:91",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, "")
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+
+  const plugins = [react(), tailwindcss(), tsconfigPaths(), envCompatible()];
+  return {
+    plugins,
+    server: {
+      proxy: {
+        "/api": {
+          target: env.API_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, "")
+        }
       }
     }
-  }
+  };
 });
