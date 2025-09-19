@@ -30,11 +30,11 @@ export const todosApi = createApi({
         method: "PUT",
         data: body
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Todo", id }]
+      invalidatesTags: (_result, _error, { id }) => [{ type: "Todo", id }]
     }),
     deleteTodo: builder.mutation<{ success: boolean; id: number }, number>({
       query: (id) => ({ url: `/todos/${id}`, method: "DELETE" }),
-      invalidatesTags: (result, error, id) => [{ type: "Todo", id }]
+      invalidatesTags: (_result, _error, id) => [{ type: "Todo", id }]
     })
   })
 });
