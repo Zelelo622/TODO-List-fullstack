@@ -1,9 +1,6 @@
 export interface ITodo {
   id: number;
-  text: string;
+  title: string;
   completed: boolean;
-}
-
-export interface ITodosState {
-  items: ITodo[];
+  userId?: number;
 }

@@ -1,18 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./theme/themeSlice";
-import todosReducer from "./todos/todosSlice";
 import authReducer from "./auth/authSlice";
 import { authApi } from "./auth/authApi";
+import { todosApi } from "./todos/todosApi";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
-    todos: todosReducer,
     auth: authReducer,
-    [authApi.reducerPath]: authApi.reducer
+    [authApi.reducerPath]: authApi.reducer,
+    [todosApi.reducerPath]: todosApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware)
+    getDefaultMiddleware()
+      .concat(authApi.middleware)
+      .concat(todosApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>;
