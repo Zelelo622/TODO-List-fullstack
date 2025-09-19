@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import type { ReactElement } from "react";
-import { toggleTodo, deleteTodo } from "src/redux/todosSlice";
+import { toggleTodo, deleteTodo } from "src/redux/todos/todosSlice";
 
 interface TodoItemProps {
   id: number;
@@ -30,7 +30,7 @@ const TodoItem = ({ id, text, completed }: TodoItemProps): ReactElement => {
       </label>
       <button
         onClick={() => dispatch(deleteTodo(id))}
-        className="text-red-500 hover:text-red-700">
+        className="cursor-pointer text-red-500 hover:text-red-700">
         Удалить
       </button>
     </li>

@@ -1,16 +1,12 @@
 import type { ReactElement } from "react";
-import AddToDoForm from "src/components/AddToDoForm";
-import Header from "src/components/Header";
-import TodoList from "src/components/TodoList";
+import AddToDoForm from "src/components/Todo/AddToDoForm";
+import TodoList from "src/components/Todo/TodoList";
 
 const Home = (): ReactElement => (
-  <div className="dark:bg-veryDarkBlue bg-veryLightGray min-h-screen">
-    <div className="container pt-10 pb-10 pl-3 pr-3 mx-auto">
-      <Header />
-      <AddToDoForm />
-      <TodoList />
-    </div>
-  </div>
+  <>
+    <AddToDoForm />
+    <TodoList />
+  </>
 );
 
 export default Home;

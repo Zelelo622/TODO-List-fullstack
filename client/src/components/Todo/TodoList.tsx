@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { ReactElement } from "react";
 import { useState, useMemo } from "react";
 import type { RootState } from "src/redux/store";
-import { clearCompleted } from "src/redux/todosSlice";
+import { clearCompleted } from "src/redux/todos/todosSlice";
 import TodoItem from "./TodoItem";
 
 type FilterType = "all" | "active" | "completed";

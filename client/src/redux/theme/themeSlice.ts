@@ -1,20 +1,15 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { TTheme, IThemeState } from "./types";
 
-export type Theme = "light" | "dark";
-
-interface ThemeState {
-  value: Theme;
-}
-
-const initialTheme = (): Theme => {
-  const saved = localStorage.getItem("theme") as Theme | null;
+const initialTheme = (): TTheme => {
+  const saved = localStorage.getItem("theme") as TTheme | null;
   if (saved) return saved;
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
 };
 
-const initialState: ThemeState = {
+const initialState: IThemeState = {
   value: initialTheme(),
 };
 
@@ -26,7 +21,7 @@ const themeSlice = createSlice({
       state.value = state.value === "light" ? "dark" : "light";
       localStorage.setItem("theme", state.value);
     },
-    setTheme: (state, action: PayloadAction<Theme>) => {
+    setTheme: (state, action: PayloadAction<TTheme>) => {
       state.value = action.payload;
       localStorage.setItem("theme", state.value);
     },
