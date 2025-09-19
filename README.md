@@ -51,3 +51,7 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Данные для входа
+username: `Тестовый-акк`  
+password: `proverka`
